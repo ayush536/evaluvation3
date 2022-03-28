@@ -1,30 +1,16 @@
-import { Link } from "react-router-dom";
-
-const links = [{ to: "/", title: "Home" }, { to: "/books", title: "Books" }, { to: "/books/:id", title: "Book Details" },{
-  to : "/section", title : "Section"}]
-export const Navbar = () => {
+import React from 'react'
+import {Link} from 'react-router-dom'
+import './navbar.css'
+const Navbar = () => {
   return (
-    <>
-      <div className="navbar">
-        <>
-          <div style={{ display: "flex", justifyContent: 'center' }}>
-            {links.map((e) => {
-              return (
-                <Link key={e.to} style={{ padding: '10px' }} to={e.to}>
-                  {e.title}
-                </Link>
-              )
-            })}
+    <div className="navbar">
+        <Link to='/'>Home</Link>
+        <Link to={`/section/${'History'}`}>History</Link>
+        <Link to={`/section/${'Technology'}`}>Technology</Link>
+        <Link to={`/section/${'Mythology'}`}>Mythology</Link>
+        <Link to={`/section/${'Mystery'}`}>Mystery</Link>
+    </div>
+  )
+}
 
-          </div>
-        </>
-
-        {/* Populate 5 buttons with EXACT\ same classnames as of their routes name */}
-        {/* Example: 
-            <button className="history"> Link to history here  </button>  */}
-        {/* Home component will have `/` route and classname as `home`  */}
-
-      </div>
-    </>
-  );
-};
+export default Navbar
